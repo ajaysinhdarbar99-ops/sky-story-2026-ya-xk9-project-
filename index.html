@@ -15,7 +15,6 @@
     scroll-behavior:smooth;
   }
 
-  /* ---------- Fixed Sky Background ---------- */
   .sky-bg {
     position:fixed;
     top:0; left:0;
@@ -47,20 +46,21 @@
     z-index:2;
   }
 
-  /* ---------- Sections ---------- */
   section {
     position:relative;
     width:100%;
-    min-height:100vh;
+    min-height:auto;
     display:flex;
     flex-direction:column;
     align-items:center;
     justify-content:center;
-    padding:60px 24px;
+    padding:32px 20px;
     text-align:center;
   }
+  #intro, #wish-section {
+    min-height:90vh;
+  }
 
-  /* ---------- Intro ---------- */
   .intro-title {
     font-size:3.2rem;
     letter-spacing:6px;
@@ -90,27 +90,28 @@
     50% { transform:translateY(14px); }
   }
 
-  /* ---------- Photo Sections ---------- */
   .photo-row {
     max-width:1000px;
     width:100%;
     display:flex;
-    flex-wrap:wrap;
+    flex-wrap:nowrap;
     align-items:center;
     justify-content:center;
-    gap:30px;
+    gap:16px;
   }
   .photo-row.reverse {
     flex-direction:row-reverse;
   }
   .photo-frame {
-    flex:1 1 280px;
-    max-width:340px;
+    flex:0 0 auto;
+    width:38%;
+    max-width:150px;
   }
   .photo-frame img {
     width:100%;
-    border-radius:18px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    display:block;
+    border-radius:14px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
     border:2px solid rgba(255,255,255,0.15);
     opacity:0;
     transform:translateY(40px);
@@ -121,16 +122,16 @@
     transform:translateY(0);
   }
   .photo-text {
-    flex:1 1 280px;
-    max-width:380px;
+    flex:1 1 0;
+    min-width:0;
     background: rgba(255,255,255,0.07);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border:1px solid rgba(255,255,255,0.15);
-    border-radius:18px;
-    padding:26px 22px;
-    font-size:1rem;
-    line-height:1.6;
+    border-radius:16px;
+    padding:16px 14px;
+    font-size:0.85rem;
+    line-height:1.5;
     opacity:0;
     transform:translateY(40px);
     transition: opacity 1s ease 0.2s, transform 1s ease 0.2s;
@@ -140,7 +141,6 @@
     transform:translateY(0);
   }
 
-  /* ---------- Glass Big Text ---------- */
   .glass-text {
     font-size:2.4rem;
     font-weight:700;
@@ -162,7 +162,6 @@
     transform:translateY(0);
   }
 
-  /* ---------- Make a Wish ---------- */
   .star-wrap {
     display:flex;
     flex-direction:column;
@@ -170,11 +169,16 @@
     gap:26px;
   }
   .star {
-    font-size:5rem;
+    width:100px;
     cursor:pointer;
     user-select:none;
     transition: transform 0.25s ease, filter 0.25s ease;
-    filter: drop-shadow(0 0 10px rgba(255,255,255,0.5));
+    filter: drop-shadow(0 0 14px rgba(255,230,150,0.6));
+  }
+  .star svg {
+    width:100%;
+    height:auto;
+    display:block;
   }
   .star.tap1 { transform:scale(1.15) rotate(-6deg); }
   .star.tap2 { transform:scale(1.5) rotate(6deg); filter: drop-shadow(0 0 20px rgba(255,255,150,0.8)); }
@@ -199,7 +203,6 @@
     margin-top:6px;
   }
 
-  /* ---------- Music Player ---------- */
   .music-card {
     background: rgba(255,255,255,0.07);
     backdrop-filter: blur(14px);
@@ -256,7 +259,6 @@
     50% { height:20px; }
   }
 
-  /* ---------- Couple Photo + I LOVE YOU ---------- */
   .couple-photo {
     max-width:320px;
     width:100%;
@@ -270,7 +272,6 @@
   }
   .couple-photo.visible { opacity:1; transform:translateY(0); }
 
-  /* ---------- Footer ---------- */
   footer {
     min-height:auto;
     padding:40px 20px 60px;
@@ -284,13 +285,12 @@
   @media (max-width:600px) {
     .intro-title { font-size:2.1rem; padding:16px 26px; letter-spacing:4px; }
     .glass-text { font-size:1.6rem; padding:24px 20px; }
-    .star { font-size:4rem; }
+    .star { width:78px; }
   }
 </style>
 </head>
 <body>
 
-  <!-- Background Sky -->
   <div class="sky-bg">
     <img src="morning.png" id="bg-morning" class="active">
     <img src="afternoon.png" id="bg-afternoon">
@@ -301,14 +301,12 @@
 
   <div class="page-content">
 
-  <!-- Intro -->
   <section id="intro">
     <div class="intro-title">ANOKHI</div>
     <div class="intro-sub">ek chhoti si duniya, sirf tumhare liye 🤍</div>
     <div class="scroll-hint">↓</div>
   </section>
 
-  <!-- Set 1 -->
   <section>
     <div class="photo-row">
       <div class="photo-frame"><img data-src="photo1.jpg" class="reveal-img"></div>
@@ -330,12 +328,10 @@
     </div>
   </section>
 
-  <!-- Always and Forever You -->
   <section>
     <div class="glass-text reveal-text">ALWAYS AND FOREVER YOU</div>
   </section>
 
-  <!-- Set 2 -->
   <section>
     <div class="photo-row">
       <div class="photo-frame"><img data-src="photo4.jpg" class="reveal-img"></div>
@@ -357,21 +353,25 @@
     </div>
   </section>
 
-  <!-- Transition line -->
-  <section>
-    <div class="glass-text reveal-text" style="font-size:1.4rem;">Har pal tumhare saath aur khaas ban jata hai... ab ek wish karte hain hum donon 🌙⭐</div>
-  </section>
-
-  <!-- Make a Wish -->
   <section id="wish-section">
     <div class="star-wrap">
-      <div class="star" id="star">⭐</div>
+      <div class="star" id="star">
+        <svg viewBox="0 0 51 48" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="starGrad" cx="50%" cy="35%" r="65%">
+              <stop offset="0%" stop-color="#fff9e6"/>
+              <stop offset="55%" stop-color="#ffe9a8"/>
+              <stop offset="100%" stop-color="#f7c948"/>
+            </radialGradient>
+          </defs>
+          <path d="M25.5 0 L31 17.5 L49.5 17.5 L34.5 28.5 L40 46 L25.5 35 L11 46 L16.5 28.5 L1.5 17.5 L20 17.5 Z" fill="url(#starGrad)" stroke="rgba(255,255,255,0.35)" stroke-width="0.6"/>
+        </svg>
+      </div>
       <div class="wish-text" id="wish-text">Make a Wish ⭐</div>
       <div class="wish-hint" id="wish-hint">tap the star</div>
     </div>
   </section>
 
-  <!-- Music Player -->
   <section>
     <div class="music-card">
       <div class="music-title">for you, Anokhi 🎵</div>
@@ -383,7 +383,6 @@
     </div>
   </section>
 
-  <!-- Couple photo + I LOVE YOU -->
   <section>
     <img src="couple.jpg" class="couple-photo reveal-img">
     <div class="glass-text reveal-text">I LOVE YOU SO MUCH</div>
@@ -396,7 +395,6 @@
   </div><!-- /page-content -->
 
 <script>
-  /* ---------- Sky background scroll transition ---------- */
   const bgImgs = [
     document.getElementById('bg-morning'),
     document.getElementById('bg-afternoon'),
@@ -424,7 +422,6 @@
   window.addEventListener('scroll', updateSky);
   updateSky();
 
-  /* ---------- Reveal on scroll (fade-in) ---------- */
   const revealEls = document.querySelectorAll('.reveal-img, .reveal-text');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -439,7 +436,6 @@
   }, { threshold: 0.2 });
   revealEls.forEach(el => observer.observe(el));
 
-  /* ---------- Make a Wish star ---------- */
   const star = document.getElementById('star');
   const wishText = document.getElementById('wish-text');
   const wishHint = document.getElementById('wish-hint');
@@ -467,7 +463,6 @@
     }
   });
 
-  /* ---------- Music player ---------- */
   const audio = document.getElementById('audio');
   const playBtn = document.getElementById('play-btn');
   const bars = document.getElementById('music-bars');
