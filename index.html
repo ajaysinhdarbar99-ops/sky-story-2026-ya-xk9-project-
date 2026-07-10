@@ -141,6 +141,23 @@
     transform:translateY(0);
   }
 
+  .photo-stack {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:16px;
+    max-width:340px;
+    width:100%;
+  }
+  .photo-stack .photo-frame {
+    width:60%;
+    max-width:220px;
+  }
+  .photo-stack .photo-text {
+    text-align:center;
+    max-width:340px;
+  }
+
   .glass-text {
     font-size:2.4rem;
     font-weight:700;
@@ -333,21 +350,21 @@
   </section>
 
   <section>
-    <div class="photo-row">
+    <div class="photo-stack">
       <div class="photo-frame"><img data-src="photo4.jpg" class="reveal-img"></div>
       <div class="photo-text reveal-text">When we met, we were such strangers to each other. Slowly, we grew so close — and I'm so glad I met you, so glad I fell in love with you.</div>
     </div>
   </section>
 
   <section>
-    <div class="photo-row reverse">
+    <div class="photo-stack">
       <div class="photo-frame"><img data-src="photo5.jpg" class="reveal-img"></div>
       <div class="photo-text reveal-text">You created the best moments of my life, ones I'll always remember. You'll always be the best part of my life — even in my last 7 minutes, it'll be you.</div>
     </div>
   </section>
 
   <section>
-    <div class="photo-row">
+    <div class="photo-stack">
       <div class="photo-frame"><img data-src="photo6.jpg" class="reveal-img"></div>
       <div class="photo-text reveal-text">And again, I'm so proud of you. I'm sure one day you'll be an amazing doctor and enjoy your freedom. I've seen all your struggles — I've seen you since you were 18. You're so special to me, cutie, my good luck charm. I'm nothing without you, baccha.</div>
     </div>
